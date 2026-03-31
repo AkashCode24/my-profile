@@ -14,9 +14,13 @@
       padding: 0;
       box-sizing: border-box;
       font-family: 'Product Sans', sans-serif;
-      cursor: none !important;
       -webkit-user-select: none;
       user-select: none;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      * { cursor: none !important; }
+      .custom-cursor { display: block !important; }
     }
 
     body, html {
@@ -25,7 +29,6 @@
       overflow: hidden;
     }
 
-    /* Preloader Styling */
     #preloader {
       position: fixed;
       top: 0;
@@ -53,42 +56,33 @@
       50% { opacity: 1; transform: scale(1.2); }
     }
 
-    .loader-hidden {
-      opacity: 0;
-      visibility: hidden;
-    }
+    .loader-hidden { opacity: 0; visibility: hidden; }
 
-    /* IP Display */
     .user-ip {
       position: fixed;
-      top: 20px;
-      right: 20px;
+      top: 15px;
+      right: 15px;
       color: rgba(255, 255, 255, 0.4);
-      font-size: 0.65rem;
+      font-size: 0.6rem;
       letter-spacing: 1px;
       z-index: 100;
     }
 
-    /* Custom Cursor */
     .custom-cursor {
       width: 15px;
       height: 15px;
       background-color: #fff;
       border-radius: 50%;
       position: fixed;
-      top: 0;
-      left: 0;
       pointer-events: none;
       z-index: 9999;
       mix-blend-mode: difference; 
       transition: width 0.3s ease, height 0.3s ease, transform 0.1s ease-out;
       transform: translate(-50%, -50%);
+      display: none;
     }
 
-    .custom-cursor.hovered {
-      width: 60px;
-      height: 60px;
-    }
+    .custom-cursor.hovered { width: 60px; height: 60px; }
 
     .hero {
       position: relative;
@@ -101,25 +95,20 @@
       background-image: url('https://cdn.discordapp.com/attachments/1003601745907306528/1488359101644800130/Pngtreedark_green_background_with_abstract_13395331.jpg?ex=69cc7dee&is=69cb2c6e&hm=4fd499368e47e5229b1fe3cc9c55c8b37d884ea6a6fa2de8edb9ab1d7bae431b');
       background-size: cover;
       background-position: center;
-      background-repeat: no-repeat;
     }
 
     #canvas1 {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       z-index: 1;
       pointer-events: none; 
     }
 
     .overlay {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       background: rgba(0, 0, 0, 0.75); 
       z-index: 0;
     }
@@ -132,31 +121,20 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      animation: fadeIn 2s ease-in-out;
+      padding: 20px;
+      width: 100%;
     }
 
-    /* Profile Image Styling */
     .profile-img-container {
-      width: 120px;
-      height: 120px;
+      width: 110px;
+      height: 110px;
       border-radius: 50%;
       padding: 5px;
       background: rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(5px);
       border: 1px solid rgba(255, 255, 255, 0.2);
-      margin-bottom: 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      transition: transform 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
-      cursor: none; /* JS interaction එක නිසා මෙතනට 'pointer' අවශ්‍ය නැත, cursor handle කරන්නේ JS වලින් */
-    }
-
-    /* Image hover effects */
-    .profile-img-container:hover {
-      transform: scale(1.05) translateY(-5px);
-      border-color: rgba(255, 255, 255, 0.5);
-      box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
+      margin-bottom: 15px;
+      transition: transform 0.5s ease;
     }
 
     .profile-img-container img {
@@ -167,16 +145,16 @@
     }
 
     .content h1 {
-      font-size: 3.5rem;
+      font-size: 2.8rem;
       font-weight: 600;
       letter-spacing: 2px;
       text-transform: uppercase;
-      line-height: 1;
+      line-height: 1.1;
     }
 
     .content p {
-      margin-top: 5px;
-      font-size: 1.1rem;
+      margin-top: 10px;
+      font-size: 1rem;
       letter-spacing: 2px;
       height: 1.5rem;
       display: flex;
@@ -195,9 +173,8 @@
     .slide-text.active { opacity: 0.7; transform: translateY(0); }
     .slide-text.prev { opacity: 0; transform: translateY(-100%); }
 
-    /* Button Styled Link */
     .btn {
-      margin-top: 25px;
+      margin-top: 30px;
       padding: 12px 35px;
       border: 1px solid #fff;
       border-radius: 30px;
@@ -207,11 +184,11 @@
       letter-spacing: 2px;
       background-color: #fff;
       transition: all 0.4s ease;
+      text-transform: uppercase;
+      text-decoration: none;
+      display: inline-block;
       position: relative;
       z-index: 11;
-      text-transform: uppercase;
-      text-decoration: none; 
-      display: inline-block;
     }
 
     .btn:hover {
@@ -224,15 +201,15 @@
 
     .socials {
       position: absolute;
-      bottom: 40px;
+      bottom: 30px;
       display: flex;
-      gap: 15px;
+      gap: 12px;
       z-index: 10;
     }
 
     .socials a {
-      width: 40px;
-      height: 40px;
+      width: 38px;
+      height: 38px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -243,14 +220,20 @@
       border: 1px solid rgba(255, 255, 255, 0.1);
       transition: 0.4s ease;
       text-decoration: none;
-      opacity: 0;
-      animation: socialFade 0.8s forwards;
     }
 
-    .socials a:hover { transform: translateY(-5px); background: rgba(255, 255, 255, 0.2); border-color: #fff; }
+    .socials a:hover {
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.2);
+      border-color: #fff;
+    }
 
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-    @keyframes socialFade { to { opacity: 1; transform: translateY(0); } }
+    @media (min-width: 768px) {
+      .content h1 { font-size: 3.5rem; }
+      .profile-img-container { width: 130px; height: 130px; }
+      .socials { bottom: 40px; gap: 15px; }
+      .socials a { width: 42px; height: 42px; }
+    }
   </style>
 </head>
 <body>
@@ -290,15 +273,11 @@
   </section>
 
   <script>
-    // Preloader Logic
     window.addEventListener('load', () => {
       const loader = document.getElementById('preloader');
-      setTimeout(() => {
-        loader.classList.add('loader-hidden');
-      }, 1000);
+      setTimeout(() => { loader.classList.add('loader-hidden'); }, 1000);
     });
 
-    // IP Fetching
     async function getIP() {
       try {
         const response = await fetch('https://api.ipify.org?format=json');
@@ -310,29 +289,31 @@
 
     document.addEventListener('contextmenu', e => e.preventDefault());
 
-    // Cursor Logic
     const cursor = document.getElementById('cursor');
     let cursorX = 0, cursorY = 0, currentX = 0, currentY = 0;
-    document.addEventListener('mousemove', e => { cursorX = e.clientX; cursorY = e.clientY; });
+    const isMouse = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
-    function animateCursor() {
-      currentX += (cursorX - currentX) * 0.15;
-      currentY += (cursorY - currentY) * 0.15;
-      cursor.style.left = currentX + 'px';
-      cursor.style.top = currentY + 'px';
-      requestAnimationFrame(animateCursor);
+    if (isMouse) {
+      document.addEventListener('mousemove', e => { 
+        cursorX = e.clientX; 
+        cursorY = e.clientY; 
+      });
+
+      function animateCursor() {
+        currentX += (cursorX - currentX) * 0.15;
+        currentY += (cursorY - currentY) * 0.15;
+        cursor.style.left = currentX + 'px';
+        cursor.style.top = currentY + 'px';
+        requestAnimationFrame(animateCursor);
+      }
+      animateCursor();
+
+      document.querySelectorAll('a, button, .profile-img-container').forEach(el => {
+        el.addEventListener('mouseenter', () => cursor.classList.add('hovered'));
+        el.addEventListener('mouseleave', () => cursor.classList.remove('hovered'));
+      });
     }
-    animateCursor();
 
-    // Cursor Hover Interactions - Adding profile image to the list
-    const hoverables = document.querySelectorAll('a, button, .profile-img-container');
-    
-    hoverables.forEach(el => {
-      el.addEventListener('mouseenter', () => cursor.classList.add('hovered'));
-      el.addEventListener('mouseleave', () => cursor.classList.remove('hovered'));
-    });
-
-    // Slide Up Text
     const textSpans = document.querySelectorAll('.slide-text');
     let currentIndex = 0;
     function changeText() {
@@ -346,40 +327,71 @@
     }
     setInterval(changeText, 3000);
 
-    // Canvas
+    // ==========================================
+    // CANVAS PARTICLES (ස්වාධීන තිත් පමණක්)
+    // ==========================================
     const canvas = document.getElementById('canvas1');
     const ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth; canvas.height = window.innerHeight;
-    let particles = [];
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+
+    let particlesArray = [];
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
+    const numberOfParticles = isMobile ? 60 : 150; 
+
     class Particle {
       constructor() {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
-        this.dx = (Math.random() - 0.5) * 0.5;
-        this.dy = (Math.random() - 0.5) * 0.5;
-        this.size = Math.random() * 1.5;
+        this.vx = (Math.random() - 0.5) * (isMobile ? 0.4 : 0.8); 
+        this.vy = (Math.random() - 0.5) * (isMobile ? 0.4 : 0.8);
+        this.radius = Math.random() * 2 + 0.5; 
       }
-      update() {
-        if (this.x > canvas.width || this.x < 0) this.dx = -this.dx;
-        if (this.y > canvas.height || this.y < 0) this.dy = -this.dy;
-        this.x += this.dx; this.y += this.dy;
+
+      draw() {
         ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.1)';
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.4)'; 
         ctx.fill();
       }
+
+      update() {
+        if (this.x > canvas.width || this.x < 0) this.vx = -this.vx;
+        if (this.y > canvas.height || this.y < 0) this.vy = -this.vy;
+
+        this.x += this.vx;
+        this.y += this.vy;
+      }
     }
-    function init() {
-      particles = [];
-      for (let i = 0; i < 80; i++) particles.push(new Particle());
+
+    function initCanvas() {
+      resizeCanvas();
+      particlesArray = [];
+      for (let i = 0; i < numberOfParticles; i++) {
+        particlesArray.push(new Particle());
+      }
     }
-    function animate() {
-      requestAnimationFrame(animate);
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particles.forEach(p => p.update());
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height); 
+
+      for (let i = 0; i < particlesArray.length; i++) {
+        particlesArray[i].update();
+        particlesArray[i].draw();
+      }
+      requestAnimationFrame(animateParticles); 
     }
-    init(); animate();
-    window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; init(); });
+
+    initCanvas();
+    animateParticles();
+
+    window.addEventListener('resize', () => {
+      initCanvas();
+    });
   </script>
 </body>
 </html>
